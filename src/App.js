@@ -7,12 +7,19 @@ function App() {
 
   const fetchData = async () => {
     const response = await fetch("https://api.adviceslip.com/advice");
+    if(!response.ok){
+      throw new Error();
+    }
     const data = await response.json();
     setAdvice(data.slip.advice);
   };
 
   useEffect(() => {
+    try{
     fetchData();
+    }catch(error){
+      console.log(error.message)
+    }
   }, []);
 
   const adviceHandler = () => {

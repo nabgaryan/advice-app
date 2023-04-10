@@ -58,6 +58,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .container h1 {
+    font-size: 25px;
+  }
   .container {
     width: 65%;
   }
